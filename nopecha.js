@@ -99,6 +99,9 @@ class Configuration {
         if (!this.apiBase) {
             this.apiBase = "https://api.nopecha.com";
         }
+        if (!/^https:\/\//i.test(this.apiBase)) {
+            throw new Error("Invalid api base: must use HTTPS to protect the API key in transit");
+        }
     }
 }
 
